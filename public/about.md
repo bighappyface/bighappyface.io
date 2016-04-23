@@ -1,0 +1,28 @@
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('img/contact-bg.jpg')">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="page-heading">
+            <h1>Hello</h1>
+            <hr class="small">
+            <span class="subheading">My name is David Porter.</span>
+          </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <h2>Thank you for your visit!</h2>
+
+      <p>If I do not know you, I am a father, husband, and occasionally at some point during the week, a software developer focused on web applications.</p>
+
+    </div>
+  </div>
+</div>
