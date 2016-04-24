@@ -1,33 +1,28 @@
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
 <header class="intro-header" style="background-color: #02474C; ">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>You made it!</h1>
-                    <hr class="small">
-                    <span class="subheading">Please check out my cool articles below.</span>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="site-heading">
+          <h1>You made it!</h1>
+          <hr class="small">
+          <span class="subheading">Please check out my cool articles below.</span>
         </div>
+      </div>
     </div>
+  </div>
 </header>
 
 <!-- Main Content -->
 <div class="container">
   <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <%- partial("_partials/post-preview", { title: "Post title foo", subtitle: "This is my foo page", author: "David Porter", date: "April 23, 2016", link: "posts/mypost.html" }) %>
-          <hr>
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
+      <% for(var slug in public.posts._data) { %>
+        <%- partial("_partials/post-preview", {slug: slug, post: public.posts._data[slug]}); %>
+      <% }; %>
 
-          <!-- Pager -->
-          <!-- <ul class="pager">
-              <li class="next">
-                  <a href="#">Older Posts &rarr;</a>
-              </li>
-          </ul> -->
-      </div>
+    </div>
   </div>
 </div>
