@@ -5,7 +5,7 @@
   "main": "public",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preversion": "npm run harp compile public dist && git add .",
+    "preversion": "harp compile public dist && git add .",
     "postversion": "git push && git push --tags"
   },
   "repository": {
