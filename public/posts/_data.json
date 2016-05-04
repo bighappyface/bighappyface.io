@@ -1,8 +1,37 @@
 {
+  "edge-side-includes-demo": {
+    "title": "Edge Side Includes Demo",
+    "description": "",
+    "author": "David Porter",
+    "date": "February 7, 2016",
+    "header_img": "server-room.jpg"
+  },
+  "pdd-plan-driven-development": {
+    "title": "PDD (Plan-Driven Development)",
+    "description": "",
+    "author": "David Porter",
+    "date": "September 17, 2015",
+    "header_img": "plan.jpg"
+  },
+  "why-does-my-drupal-module-update-hook-run-more-than-once": {
+    "title": "Why does my Drupal module update hook run more than once?",
+    "description": "",
+    "author": "David Porter",
+    "date": "June 10, 2015",
+    "header_img": "confusion.jpg"
+  },
+  "common-etags-from-multiple-servers": {
+    "title": "Common ETags from multiple servers",
+    "description": "",
+    "author": "David Porter",
+    "date": "June 9, 2015",
+    "header_img": "server-room.jpg"
+  },
   "another-tech-blog-why-not": {
     "title": "Another tech blog... why not?",
     "description": "",
     "author": "David Porter",
-    "date": "June 9, 2015"
+    "date": "June 9, 2015",
+    "header_img": "keyboard.jpg"
   }
 }

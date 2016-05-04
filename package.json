@@ -4,7 +4,7 @@
   "description": "",
   "main": "public",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "harp server public",
     "preversion": "harp compile public dist && git add .",
     "postversion": "git push && git push --tags"
   },
