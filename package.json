@@ -1,12 +1,13 @@
 {
   "name": "bighappyface.io",
   "version": "1.1.0",
-  "description": "",
+  "description": "bighappyface.io blog and website",
   "main": "public",
   "scripts": {
     "start": "harp server public",
     "preversion": "harp compile public dist && git add .",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "publish": "surge dist"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/bighappyface/bighappyface.io#readme",
   "dependencies": {
-    "harp": "^0.20.3"
+    "harp": "^0.20.3",
+    "surge": "^0.17.7"
   }
 }
