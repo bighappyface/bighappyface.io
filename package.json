@@ -7,7 +7,7 @@
     "start": "harp server public",
     "preversion": "harp compile public dist && git add .",
     "postversion": "git push && git push --tags",
-    "deploy": "surge dist bighapyface.io"
+    "deploy": "surge dist bighappyface.io"
   },
   "repository": {
     "type": "git",
