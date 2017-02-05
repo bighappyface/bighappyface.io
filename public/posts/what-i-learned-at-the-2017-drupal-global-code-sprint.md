@@ -1,38 +1,37 @@
-# What I learned at the 2017 Drupal Global Sprint
+# What I learned at the 2017 Drupal Global Sprint Weekend
 
-## Resources
-
-https://www.drupal.org/contributor-tasks
-https://www.drupal.org/node/2610510
-
-## My issue
-
-https://www.drupal.org/node/2575535#comment-11898482
-
-## Things I learned at the Drupal Sprint
+I attended my first Drupal sprint last weekend, and I have to admit, it was much more fun and rewarding that I thought it would be. I have skipped the sprints at DrupalCon in the past, mostly to party or visit wherever the con is located, and I have regretted not making it a priority. This brief post covers my learnings and thoughts from my first Drupal sprint.
 
 ### TL;DR
 
-1. Try to find an issue in advance
+1. Try to find an issue in advance. Call it pre-planning.
 
-2. Local dev environment for core is essential (git repo in particular). Get it going in advance.
+2. A local dev environment setup for working on Drupal core is essential. Get it going in advance, make sure it works well with a git clone of Drupal core, and seriously consider getting a solid debugger setup. (more below)
+
+3. Know the contributor task process. Here is a great resource for contributor task guidelines: https://www.drupal.org/contributor-tasks
+
+4. Keep participating. Practice makes perfect, and you can't get patches in core without creating and submitting them.
+
+---
+
+### My learning and thoughts
+
+#### Issues for Drupal core
+
+https://www.drupal.org/project/issues/drupal
+
+#### Local dev env for Drupal core
 
 ```
 # Clone repo
 git clone git://git.drupal.org/project/drupal.git
-# Navigate 
+# Navigate
 cd drupal
 # Install composer deps
 composer install
 # Initialize settings.php and sqlite db
 drush qd --use-existing
 ```
-
-3. Know the process. Here is a great resource for contributor task guidelines: https://www.drupal.org/contributor-tasks
-
-4. Keep participating. Practice makes perfect.
-
-### More
 
 Use xdebug when working with core
 
