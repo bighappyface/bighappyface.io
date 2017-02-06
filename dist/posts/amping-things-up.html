@@ -372,7 +372,7 @@
       .pager .disabled > a, .pager .disabled > a:hover, .pager .disabled > a:focus, .pager .disabled > span { color: rgb(128, 128, 128); background-color: rgb(64, 64, 64); cursor: not-allowed; }
       /*******/
 
-      .intro-header-custom { background-image: url('/img/server-room.jpg'); }
+      .intro-header-custom { background-image: url('/img/awesomeface.png'); }
       .site-heading-green-bg { background-color:rgba(2,71,76,0.5); }
     </style>
     <script type="application/ld+json">
@@ -388,7 +388,7 @@
 
     <title>bighappyface.io</title>
 
-    <link rel="canonical" data-derp="posts" href="http://bighappyface.io/posts/edge-side-includes-demo">
+    <link rel="canonical" data-derp="posts" href="http://bighappyface.io/posts/amping-things-up">
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -437,9 +437,9 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>Edge Side Includes Demo</h1>
-          <h2 class="subheading"></h2>
-          <span class="meta">Posted by David Porter on February 7, 2016</span>
+          <h1>bighappyface.io</h1>
+          <h2 class="subheading">The public website of David Porter a.k.a @bighappyface</h2>
+          <span class="meta">Posted by David Porter on </span>
         </div>
       </div>
     </div>
@@ -451,12 +451,37 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <h2>Hey there!</h2><p>I recently came across a production reason to use Edge Side Includes in Varnish, and I&#39;m pretty happy with the outcome.</p>
-<p>To help introduce folks to ESI and the possibilities it provides, I have created a simple demo repo showcasing some practical uses:</p>
-<p><a href="https://github.com/bighappyface/esi-demo">https://github.com/bighappyface/esi-demo</a></p>
-<p>Check it out and tell me what you think!</p>
-<p>I&#39;m going to discuss this in person for the Feb 2016 meetup of the SA Web Dev group: <a href="http://www.meetup.com/sawebdev/events/228290389/">http://www.meetup.com/sawebdev/events/228290389/</a></p>
-<p>See you there!</p>
+        <h2>AMPing things up</h2><p>I have been fascinated by Google&#39;s AMP project and the results being achieved with principled, focused optimization for web page delivery, especially for mobile. I believe the constraints imposed by AMP are great and to be embraced. There is no better way to demonstrate that than to adopt AMP for my site, and this post covers the single release of this site that introduces AMP.</p>
+<h3>AMP</h3><p><a href="https://www.ampproject.org/">https://www.ampproject.org/</a></p>
+<h3>Implementation</h3><p>Adapting this site was not difficult. A great deal of the site was ready to go by simply <a href="https://www.ampproject.org/docs/get_started/create/basic_markup">implementing the boilerplate</a>.</p>
+<p>The homepage had eleven errors:</p>
+<pre><code class="language-shell">The attribute &#39;href&#39; in tag &#39;link rel=stylesheet for fonts&#39; is set to the invalid value &#39;/css/main.css&#39;. (see https://www.ampproject.org/docs/reference/spec.html#custom-fonts)
+The attribute &#39;href&#39; in tag &#39;link rel=stylesheet for fonts&#39; is set to the invalid value &#39;//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css&#39;. (see https://www.ampproject.org/docs/reference/spec.html#custom-fonts)
+The attribute &#39;href&#39; in tag &#39;link rel=stylesheet for fonts&#39; is set to the invalid value &#39;//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&#39;. (see https://www.ampproject.org/docs/reference/spec.html#custom-fonts)
+The attribute &#39;href&#39; in tag &#39;link rel=stylesheet for fonts&#39; is set to the invalid value &#39;//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&#39;. (see https://www.ampproject.org/docs/reference/spec.html#custom-fonts)
+The tag &#39;iframe&#39; is disallowed.
+The tag &#39;script&#39; is disallowed except in specific forms.
+The attribute &#39;style&#39; may not appear in tag &#39;header&#39;.
+The attribute &#39;style&#39; may not appear in tag &#39;div&#39;.
+The tag &#39;script&#39; is disallowed except in specific forms.
+The tag &#39;script&#39; is disallowed except in specific forms.
+The tag &#39;script&#39; is disallowed except in specific forms.
+</code></pre>
+<p>The validation errors are awesome. Using <code>#development=1</code> couldn&#39;t be easier, and the error messages even have links to solutions for those validation errors.</p>
+<h3>The corrections</h3><ol>
+<li><p>HTTPS and absolute URLs for external resources allowed by AMP. This solved three validation errors for the fonts.</p>
+</li>
+<li><p>A new GTM containers configured for AMP pages. This solved the <code>iframe</code> error and I would have needed to do it anyway for AMP-compliant GA tracking. This change dropped two errors.</p>
+</li>
+<li><p>Scripts in the body must be <code>async</code>. I was fortunate enough to not need the various scripts I was loading so I removed them to remove three more errors.</p>
+</li>
+<li><p>Inline styles. I used them for dynamic background images but I pivoted to the inline <code>&lt;style amp-custom&gt;</code> element per-post to resolve two more errors.</p>
+</li>
+<li><p>The stylesheets. I used a custom script developed by my friend Brady Vitrano to pull all computed styles from a page, then I trimmed down all of the stuff from Bootstrap that I was certain I am not using. That got me below the 50KB limit for <code>&lt;style amp-custom&gt;</code> and with removing all <code>!important</code> directives that resolved the final validation error.</p>
+</li>
+</ol>
+<p><strong>Tip:</strong> If you harvest the computed styles, do this BEFORE you add the AMP elements so you do not pull in their styles as well.</p>
+<h3>Results</h3>
       </div>
     </div>
   </div>
