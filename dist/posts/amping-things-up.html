@@ -378,8 +378,25 @@
       .pager .disabled > a, .pager .disabled > a:hover, .pager .disabled > a:focus, .pager .disabled > span { color: rgb(128, 128, 128); background-color: rgb(64, 64, 64); cursor: not-allowed; }
       /*******/
 
-      .intro-header-custom { background-image: url('/img/awesomeface.webp'); }
+      .intro-header-custom { background-image: url('/img/html.webp'); }
       .site-heading-green-bg { background-color:rgba(2,71,76,0.5); }
+
+      pre code {
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+        white-space: pre-wrap;
+        background-color: transparent;
+        border-radius: 0;
+      }
+      
+      code {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        border-radius: 4px;
+      }
     </style>
     <script type="application/ld+json">
       {
@@ -438,9 +455,9 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>bighappyface.io</h1>
-          <h2 class="subheading">The public website of David Porter a.k.a @bighappyface</h2>
-          <span class="meta">Posted by David Porter on </span>
+          <h1>AMPing things up</h1>
+          <h2 class="subheading">A brief recap of implementing AMP HTML on bighappyface.io</h2>
+          <span class="meta">Posted by David Porter on February 7, 2016</span>
         </div>
       </div>
     </div>
@@ -452,7 +469,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <h2>AMPing things up</h2><p>I have been fascinated by Google&#39;s AMP project and the results being achieved with principled, focused optimization for web page delivery, especially for mobile. I believe the constraints imposed by AMP are great and to be embraced. There is no better way to demonstrate that than to adopt AMP for my site, and this post covers the single release of this site that introduces AMP.</p>
+        <h2>AMPing things up</h2><p>I have been fascinated by Google&#39;s AMP project and the results being achieved with focused optimization of web page delivery, especially for mobile. I believe the constraints imposed by AMP are great and to be embraced. There is no better way to demonstrate that than to adopt AMP for my site, and this post covers the conversion process of this site to valid AMP HTML.</p>
 <h3>AMP</h3><p><a href="https://www.ampproject.org/">https://www.ampproject.org/</a></p>
 <h3>Implementation</h3><p>Adapting this site was not difficult. A great deal of the site was ready to go by simply <a href="https://www.ampproject.org/docs/get_started/create/basic_markup">implementing the boilerplate</a>.</p>
 <p>The homepage had eleven errors:</p>
@@ -468,21 +485,25 @@ The tag &#39;script&#39; is disallowed except in specific forms.
 The tag &#39;script&#39; is disallowed except in specific forms.
 The tag &#39;script&#39; is disallowed except in specific forms.
 </code></pre>
-<p>The validation errors are awesome. Using <code>#development=1</code> couldn&#39;t be easier, and the error messages even have links to solutions for those validation errors.</p>
+<p>The console validation errors are awesome. Using <code>#development=1</code> couldn&#39;t be easier, and the error messages even have links to solutions for those validation errors.</p>
 <h3>The corrections</h3><ol>
 <li><p>HTTPS and absolute URLs for external resources allowed by AMP. This solved three validation errors for the fonts.</p>
 </li>
-<li><p>A new GTM containers configured for AMP pages. This solved the <code>iframe</code> error and I would have needed to do it anyway for AMP-compliant GA tracking. This change dropped two errors.</p>
+<li><p>A new GTM container configured for AMP pages. This solved the <code>iframe</code> error and I would have needed to do it anyway for AMP-compliant GA tracking. This change dropped two errors.</p>
 </li>
-<li><p>Scripts in the body must be <code>async</code>. I was fortunate enough to not need the various scripts I was loading so I removed them to remove three more errors.</p>
+<li><p>Scripts in the body must be <code>async</code>. I was fortunate enough to not need the various scripts I was loading so I removed them to silence three more errors.</p>
 </li>
 <li><p>Inline styles. I used them for dynamic background images but I pivoted to the inline <code>&lt;style amp-custom&gt;</code> element per-post to resolve two more errors.</p>
 </li>
 <li><p>The stylesheets. I used a custom script developed by my friend Brady Vitrano to pull all computed styles from a page, then I trimmed down all of the stuff from Bootstrap that I was certain I am not using. That got me below the 50KB limit for <code>&lt;style amp-custom&gt;</code> and with removing all <code>!important</code> directives that resolved the final validation error.</p>
 </li>
 </ol>
+<p>The aforementioned JS for harvesting computed CSS: <a href="https://gist.github.com/bighappyface/22b0a04293354502645ec624a6a28a59">https://gist.github.com/bighappyface/22b0a04293354502645ec624a6a28a59</a></p>
 <p><strong>Tip:</strong> If you harvest the computed styles, do this BEFORE you add the AMP elements so you do not pull in their styles as well.</p>
-<h3>Results</h3>
+<h3>Results</h3><p>WebPageTest before: <a href="https://www.webpagetest.org/result/170206_FH_TY/">https://www.webpagetest.org/result/170206_FH_TY/</a></p>
+<p>WebPageTest after: <a href="https://www.webpagetest.org/result/170206_V1_31X/">https://www.webpagetest.org/result/170206_V1_31X/</a></p>
+<p>While I also pushed in some resource hints and optimized the awesomeface image to webp, the speed index and page download speed improvements are modest but solid. About 20% improvement in fully-loaded time and about 17% improvement in speed index.</p>
+<h3>Final thoughts</h3><p>Overall, I am pleased. I dropped some requests, a ton of CSS, all custom JS, and learned about AMP.</p>
       </div>
     </div>
   </div>
