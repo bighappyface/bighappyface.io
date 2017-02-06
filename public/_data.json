@@ -1,10 +1,23 @@
 {
   "index": {
-    "title": "",
-    "description": ""
+    "title": "bighappyface.io",
+    "description": "The public website of David Porter a.k.a @bighappyface",
+    "header_img": "awesomeface.png"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "description": "Details on how to contact David Porter a.k.a @bighappyface",
+    "header_img": "contact-bg.jpg"
+  },
+  "about": {
+    "title": "bighappyface.io",
+    "description": "About David Porter a.k.a @bighappyface",
+    "header_img": "awesomeface.png"
   },
   "404": {
-    "title": "",
-    "description": ""
+    "title": "Page not found",
+    "description": "Page not found",
+    "header_img": "awesomeface.png"
   }
+
 }
