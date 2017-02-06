@@ -1,4 +1,11 @@
 {
+  "amping-things-up": {
+    "title": "AMPing things up",
+    "description": "A brief recap of implementing AMP HTML on bighappyface.io",
+    "author": "David Porter",
+    "date": "February 7, 2016",
+    "header_img": "html.webp"
+  },
   "edge-side-includes-demo": {
     "title": "Edge Side Includes Demo",
     "description": "",
