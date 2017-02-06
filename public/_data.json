@@ -7,12 +7,12 @@
   "about": {
     "title": "bighappyface.io",
     "description": "About David Porter a.k.a @bighappyface",
-    "header_img": "awesomeface.png"
+    "header_img": "awesomeface.webp"
   },
   "404": {
     "title": "Page not found",
     "description": "Page not found",
-    "header_img": "awesomeface.png"
+    "header_img": "awesomeface.webp"
   }
 
 }
