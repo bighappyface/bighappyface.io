@@ -1,4 +1,11 @@
 {
+  "resource-hints-sawebdev-meetup-feb-2017": {
+    "title": "Resource Hints Presentation",
+    "description": "My presentation on resource hints for SA Web Dev Meetup February 2017",
+    "author": "David Porter",
+    "date": "February 21, 2017",
+    "header_img": "html.png"
+  },
   "amping-things-up": {
     "title": "AMPing things up",
     "description": "A brief recap of implementing AMP HTML on bighappyface.io",
