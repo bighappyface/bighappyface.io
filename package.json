@@ -1,6 +1,6 @@
 {
   "name": "bighappyface.io",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "bighappyface.io blog and website",
   "main": "public",
   "scripts": {
